@@ -1,6 +1,6 @@
-import { useMemo, useState } from "react";
+import {  useMemo, useState } from "react";
 
-const useCategoryFilter = ({ products }) => {
+const useCustomFilter = ( products ) => {
     const [category, setCategory] = useState('');
     const [name, setName] = useState('');
     const [priceRange, setPriceRange] = useState([0, Infinity]);
@@ -19,25 +19,39 @@ const useCategoryFilter = ({ products }) => {
 
     }
 
+    
+
     const filteredProducts = useMemo(() => {
         return products.filter((product) => {
+
+           
             let matchCategory;
             let matchName;
-            let mathPriceRange;
+            let matchPriceRange;
             if (category) {
                 matchCategory = product.category === category;
             } 
+            else{
+                matchCategory = true;
+            }
 
 
-            if (name !== '') {
+            if (name) {
 
                 matchName = product.name === name;
             }
-            if (priceRange[0] >= 0 && priceRange[1] <= 1) {
-                mathPriceRange = product.price >= priceRange[0] && product.price <= priceRange[1];
+            else{
+                matchName=true;
+
+            }
+            if (priceRange[0]) {
+                matchPriceRange = product.price >= priceRange[0] && product.price <= priceRange[1];
+            }
+            else{
+                matchPriceRange =true;
             }
 
-            return matchCategory && matchName && mathPriceRange;
+            return matchCategory && matchName && matchPriceRange;
 
         });
     }, [category, name, priceRange, products]);
@@ -52,4 +66,4 @@ const useCategoryFilter = ({ products }) => {
 
 };
 
-export default useCategoryFilter;
+export default useCustomFilter;
