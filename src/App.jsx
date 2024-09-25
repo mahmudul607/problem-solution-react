@@ -35,25 +35,31 @@ function App() {
   return (
     <div className='text-center'>
       <div className="navbar bg-slate-500 text-black">
-        <div className='flex gap-3'>
-          <label>Category: </label>
-          <select onChange={handleCategory}>
-            <option value=''>All</option>
-            <option value='Electronics'>Electronics</option>
-            <option value='Fashion'>Fashion</option>
-            <option value='Game'>Game</option>
-          </select>
-          <input type="text" id="name" name="name" placeholder="name" />
-          <button className='mx-4' onClick={handleName}>Find</button>
-
-          <label>Price Range: </label>
-          <select onChange={handlePrice}>
-            <option value='0-10000'>All Prices</option>
-            <option value='0-100'>0 - 100</option>
-            <option value='100-500'>100 - 500</option>
-            <option value='500-1000'>500 - 1000</option>
-            <option value='1000-2000'>1000 - 2000</option>
-          </select>
+        <div className='md:flex gap-6 '>
+          <div className='mx-4'>
+            <label >Category: </label>
+            <select  onChange={handleCategory}>
+              <option value=''>All</option>
+              <option value='Electronics'>Electronics</option>
+              <option value='Fashion'>Fashion</option>
+              <option value='Game'>Game</option>
+            </select>
+            <span className='ml-4'>
+              <input className='px-2 rounded-lg' type="text" id="name" name="name" placeholder="name" />
+              <button className='mx-4' onClick={handleName}>Find</button>
+            </span>
+          </div>
+          <br />
+          <div>
+            <label>Price Range: </label>
+            <select onChange={handlePrice}>
+              <option value='0-10000'>All Prices</option>
+              <option value='0-100'>0 - 100</option>
+              <option value='100-500'>100 - 500</option>
+              <option value='500-1000'>500 - 1000</option>
+              <option value='1000-2000'>1000 - 2000</option>
+            </select>
+          </div>
         </div>
 
       </div>
@@ -63,15 +69,15 @@ function App() {
         <ul className='text-center py-6 grid grid-cols-1 sm-[767.99px]:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 px-4'>
           {filteredProducts.map((product) => (
             <div key={product.id} className="card bg-primary text-primary-content">
-            <div className="card-body">
-              <h2 className="card-title">{product.name}</h2>
-              <p>Category:{product.category}</p>
-              <p>Price:${product.price}</p>
-              <div className="card-actions justify-end">
-                <button className="btn">Buy Now</button>
+              <div className="card-body">
+                <h2 className="card-title">{product.name}</h2>
+                <p>Category:{product.category}</p>
+                <p>Price:${product.price}</p>
+                <div className="card-actions justify-end">
+                  <button className="btn">Buy Now</button>
+                </div>
               </div>
             </div>
-          </div>
           ))}
         </ul>
 

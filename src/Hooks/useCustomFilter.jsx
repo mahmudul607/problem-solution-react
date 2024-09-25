@@ -44,7 +44,7 @@ const useCustomFilter = ( products ) => {
                 matchName=true;
 
             }
-            if (priceRange[0]) {
+            if (priceRange[0] >= 0) {
                 matchPriceRange = product.price >= priceRange[0] && product.price <= priceRange[1];
             }
             else{
