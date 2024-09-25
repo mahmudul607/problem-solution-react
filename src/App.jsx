@@ -34,9 +34,9 @@ function App() {
 
   return (
     <div className='text-center'>
-      <div className="navbar bg-slate-500 text-black">
-        <div className='md:flex gap-6 '>
-          <div className='mx-4'>
+      <div className="navbar bg-slate-500 text-black p-0">
+        <div className='md:flex md:gap-6 max-sm:flex-col'>
+          <div className='md:mx-4'>
             <label >Category: </label>
             <select  onChange={handleCategory}>
               <option value=''>All</option>
@@ -45,11 +45,11 @@ function App() {
               <option value='Game'>Game</option>
             </select>
             <span className='ml-4'>
-              <input className='px-2 rounded-lg' type="text" id="name" name="name" placeholder="name" />
-              <button className='mx-2 btn min-h-[8px] h-6' onClick={handleName} >Find</button>
+              <input className='md:px-2 rounded-lg' type="text" id="name" name="name" placeholder="name" />
+              <button className='md:mx-2 btn min-h-[8px] h-6' onClick={handleName} >Find</button>
             </span>
           </div>
-          <br />
+          <br/>
           <div>
             <label>Price Range: </label>
             <select onChange={handlePrice}>
