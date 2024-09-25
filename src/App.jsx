@@ -46,7 +46,7 @@ function App() {
             </select>
             <span className='ml-4'>
               <input className='px-2 rounded-lg' type="text" id="name" name="name" placeholder="name" />
-              <button className='mx-2 btn min-h-[8px] h-6' >Find</button>
+              <button className='mx-2 btn min-h-[8px] h-6' onClick={handleName} >Find</button>
             </span>
           </div>
           <br />
