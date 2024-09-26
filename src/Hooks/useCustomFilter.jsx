@@ -29,7 +29,7 @@ const useCustomFilter = ( products ) => {
             let matchName;
             let matchPriceRange;
             if (category) {
-                matchCategory = product.category === category;
+                matchCategory = product.category.toLowerCase() === category.toLowerCase();
             } 
             else{
                 matchCategory = true;
@@ -38,7 +38,7 @@ const useCustomFilter = ( products ) => {
 
             if (name) {
 
-                matchName = product.name === name;
+                matchName = product.name.toLowerCase() === name.toLowerCase();
             }
             else{
                 matchName=true;
